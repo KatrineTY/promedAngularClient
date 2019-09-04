@@ -1,0 +1,24 @@
+<h2>Promed Details</h2>
+
+<hr/>
+<div *ngIf="promedDto.promed">
+  <div>
+    <label><b>Name: </b></label> {{promedDto.promed.name}}
+  </div>
+  <div>
+    <label><b>Incompatible with: </b></label>
+    <ul>
+      <li *ngFor="let pr of promedDto.incompatiblePromeds">
+        <b>{{pr.name}}</b>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="promedDto.promed.count">
+    <label><b>Count: </b></label> {{promedDto.promed.count}}
+  </div>
+</div>
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Promed List</button><br>
+
+

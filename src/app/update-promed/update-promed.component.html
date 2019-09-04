@@ -1,0 +1,38 @@
+<h3>Create Promed</h3>
+
+<div [hidden]="submitted" style="width: 400px;" *ngIf="promedDto">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="promedDto.promed.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="kind">Kind</label>
+      <input type="text" class="form-control" id="kind" required [(ngModel)]="promedDto.promed.kind" name="kind">
+    </div>
+
+    <div class="form-group" *ngIf="promedDto.promed.count">
+      <label for="count">Count</label>
+      <input type="text" class="form-control" id="count" required [(ngModel)]="promedDto.promed.count" name="count">
+    </div>
+
+    <div class="form-group">
+      <label>First Name</label>
+      <ul>
+        <li *ngFor="let pr of promedDto.incompatiblePromeds; let idx = index">
+          <select [(ngModel)]="pr.name" id="name{{idx}}" required name="name{{idx}}">
+            <option *ngFor="let prom of promeds | async" [ngValue]="prom.name"> {{prom.name}} </option>
+          </select>
+        </li>
+        <div (click)="onAddPromed()">+</div>
+      </ul>
+    </div>
+
+    <button type="submit" class="btn btn-success">Update</button>
+  </form>
+</div>
+<button (click)="list()" class="btn btn-primary">Back to Promed List</button><br>
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+</div>
