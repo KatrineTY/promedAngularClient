@@ -1,13 +1,13 @@
-import { PromedDetailsComponent } from './promed-details/promed-details.component';
-import { CreatePromedComponent } from './create-promed/create-promed.component';
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { PromedListComponent } from './promed-list/promed-list.component';
+import {PromedDetailsComponent} from './promed-details/promed-details.component';
+import {CreatePromedComponent} from './create-promed/create-promed.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {PromedListComponent} from './promed-list/promed-list.component';
 import {UpdatePromedComponent} from './update-promed/update-promed.component';
 import {LoginComponent} from './login/login.component';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'promed', pathMatch: 'full' },
+  // { path: '', redirectTo: 'promeds', pathMatch: 'full' },
   { path: 'promeds', component: PromedListComponent },
   { path: 'add', component: CreatePromedComponent },
   { path: 'update/:id', component: UpdatePromedComponent },

@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PromedService {
 
-  private baseUrl = 'http://localhost:8080/api/promeds';
+  private baseUrl = 'http://192.168.99.100:8083/api/promeds';
 
   constructor(private http: HttpClient) { }
 
