@@ -1,19 +1,22 @@
 <h3>Create Promed</h3>
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" ngNativeValidate>
     <div class="form-group">
-      <label for="name">First Name</label>
-      <input type="text" class="form-control" id="firstName" required [(ngModel)]="promed.name" name="name">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="promed.name" name="name">
     </div>
 
     <div class="form-group">
-      <label for="name">Last Name</label>
-      <input type="text" class="form-control" id="lastName" required [(ngModel)]="promed.kind" name="kind">
+      <label for="kind">Kind</label>
+      <select [(ngModel)]="promed.kind" id="kind" required name="kind" class="form-control">
+        <option value="Medicament">Medicament</option>
+        <option value="Procedure">Procedure</option>
+      </select>
     </div>
 
-    <div class="form-group">
-      <label for="name">First Name</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="promed.count" name="count">
+    <div class="form-group" *ngIf="promed.kind=='Medicament'">
+      <label for="count">Count</label>
+      <input type="number" class="form-control" id="count" required [(ngModel)]="promed.count" name="count">
     </div>
 
     <button type="submit" class="btn btn-success">Submit</button>

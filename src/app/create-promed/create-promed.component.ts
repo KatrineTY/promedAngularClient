@@ -17,6 +17,7 @@ export class CreatePromedComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.promed.kind = 'Medicament'
   }
 
   newPromed(): void {
@@ -33,7 +34,7 @@ export class CreatePromedComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.save();    
+    this.save();
   }
 
   gotoList() {
