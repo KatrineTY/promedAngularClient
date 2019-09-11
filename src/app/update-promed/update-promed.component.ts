@@ -49,6 +49,10 @@ export class UpdatePromedComponent implements OnInit {
     console.log(this.promedDto.incompatiblePromeds);
   }
 
+  onRemovePromed(promed: Promed) {
+    this.promedDto.incompatiblePromeds = this.promedDto.incompatiblePromeds.filter(elem => elem !== promed);
+  }
+
   list() {
     this.router.navigate(['promeds']);
   }

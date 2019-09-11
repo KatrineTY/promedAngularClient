@@ -22,20 +22,23 @@
 
     <div class="form-group">
       <label>Incompatible with</label>
-      <ul>
-        <li *ngFor="let pr of promedDto.incompatiblePromeds; let idx = index">
+      <div *ngFor="let pr of promedDto.incompatiblePromeds; let idx = index" class="form-row">
+        <div class="col-sm-11">
           <select [(ngModel)]="pr.name" id="name{{idx}}" required name="name{{idx}}" class="form-control">
             <option *ngFor="let prom of promeds | async" [ngValue]="prom.name"> {{prom.name}} </option>
           </select>
-        </li>
-        <button (click)="onAddPromed()" class="btn btn-sm btn-success form-control">+</button>
-
-      </ul>
+        </div>
+        <div class="col-sm-1" *ngIf="promedDto.incompatiblePromeds.length>1">
+          <button type="button" (click)="onRemovePromed(pr)" class="btn btn-sm btn-danger pull-right">x</button>
+        </div>
+      </div>
+      <br>
+      <button type="button" (click)="onAddPromed()" class="btn btn-sm btn-success form-control">+</button>
 
     </div>
 
     <button type="submit" class="btn btn-success">Update</button>
-    <button (click)="list()" class="btn btn-primary ml-2">Back to Promed List</button>
+    <button type="button" (click)="list()" class="btn btn-primary ml-2">Back to Promed List</button>
     <br>
 
   </form>
